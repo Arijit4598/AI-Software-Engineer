@@ -1,0 +1,184 @@
+/*
+ * styles.css – Modern Calculator Styling
+ * Clean structure, smoother transitions, and responsive design.
+ */
+
+/* ---------- CSS Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- Layout ---------- */
+#calculator {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+header h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Display ---------- */
+#display {
+  width: 100%;
+  font-size: 2.2rem;
+  text-align: right;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #f8fafc;
+  color: #1a1a1a;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', monospace;
+}
+
+/* ---------- Buttons Grid ---------- */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(60px, auto);
+  gap: 0.6rem;
+}
+
+/* ---------- Button Base ---------- */
+.btn {
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: all 0.25s ease;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.btn:hover {
+  background: linear-gradient(145deg, #d9d9d9, #f2f2f2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  background: linear-gradient(145deg, #cccccc, #e6e6e6);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Special Buttons ---------- */
+button[data-key="+"],
+button[data-key="-"],
+button[data-key="*"],
+button[data-key="/"] {
+  background: linear-gradient(145deg, #4b9bff, #3385ff);
+  color: #fff;
+}
+
+button[data-key="+"]:hover,
+button[data-key="-"]:hover,
+button[data-key="*"]:hover,
+button[data-key="/"]:hover {
+  background: linear-gradient(145deg, #3a7de6, #2673e6);
+}
+
+button[data-key="="] {
+  grid-column: span 3;
+  background: linear-gradient(145deg, #ff9f43, #ff7e00);
+  color: #fff;
+  font-weight: 600;
+}
+
+button[data-key="="]:hover {
+  background: linear-gradient(145deg, #ff8c33, #e66f00);
+}
+
+button[data-key="C"] {
+  background: linear-gradient(145deg, #ff5c5c, #e63939);
+  color: #fff;
+}
+
+button[data-key="C"]:hover {
+  background: linear-gradient(145deg, #e64a4a, #cc2e2e);
+}
+
+button[data-key="←"] {
+  background: linear-gradient(145deg, #a3a3a3, #8c8c8c);
+  color: #fff;
+}
+
+button[data-key="←"]:hover {
+  background: linear-gradient(145deg, #999999, #7a7a7a);
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 600px) {
+  #calculator {
+    padding: 1rem;
+  }
+
+  #display {
+    font-size: 1.8rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .buttons {
+    gap: 0.5rem;
+    grid-auto-rows: minmax(55px, auto);
+  }
+
+  .btn {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #calculator {
+    padding: 0.8rem;
+  }
+
+  #display {
+    font-size: 1.6rem;
+  }
+
+  .buttons {
+    gap: 0.4rem;
+    grid-auto-rows: minmax(50px, auto);
+  }
+
+  .btn {
+    font-size: 1.2rem;
+  }
+}
